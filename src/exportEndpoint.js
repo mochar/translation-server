@@ -31,13 +31,13 @@ var ExportEndpoint = module.exports = {
 	handle: async function (ctx, next) {
 		ctx.assert(ctx.is('json'), 415);
 		
-		var items = ctx.request.body;
+		var items = ctx.req.body;
 		
 		if (!items) {
 			ctx.throw(400, "POST data not provided");
 		}
 		
-		var query = ctx.request.query;
+		var query = ctx.req.query;
 		
 		var translatorID;
 		

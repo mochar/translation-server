@@ -185,7 +185,7 @@ WebSession.prototype.handleURL = async function () {
 			}
 			else {
 				Zotero.debug(`Handling ${req.headers['content-type']} as import`);
-				this.ctx.request.body = req.response;
+				this.ctx.req.body = req.response;
 				await ImportEndpoint.handle(this.ctx);
 				return;
 			}

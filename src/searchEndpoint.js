@@ -31,7 +31,7 @@ var SearchEndpoint = module.exports = {
 	handle: async function (ctx, next) {
 		ctx.assert(ctx.is('text'), 415);
 		
-		var data = ctx.request.body;
+		var data = ctx.req.body;
 		
 		if (!data) {
 			ctx.throw(400, "POST data not provided\n");

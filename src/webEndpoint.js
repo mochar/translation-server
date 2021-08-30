@@ -40,7 +40,7 @@ var WebEndpoint = module.exports = {
 			gc();
 		});
 		
-		var data = ctx.request.body;
+		var data = ctx.req.body;
 		
 		if (!data) {
 			ctx.throw(400, "POST data not provided\n");
@@ -61,7 +61,7 @@ var WebEndpoint = module.exports = {
 				session.next = next;
 				session.data = data;
 			} else {
-				let single = !!ctx.request.query.single;
+				let single = !!ctx.req.query.single;
 				session = new WebSession(ctx, next, data.url, { single });
 			}
 		}
@@ -78,7 +78,7 @@ var WebEndpoint = module.exports = {
 				data = 'http://' + data;
 			}
 			
-			let single = !!ctx.request.query.single;
+			let single = !!ctx.req.query.single;
 			session = new WebSession(ctx, next, data, { single });
 		}
 		
